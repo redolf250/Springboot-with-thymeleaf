@@ -1,4 +1,9 @@
 package com.redolf.thymeleaf.repository;
 
-public interface DocumentRepository extends org.springframework.data.jpa.repository.JpaRepository<com.redolf.thymeleaf.model.Document, java.lang.Long> {
+import com.redolf.thymeleaf.model.Document;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DocumentRepository extends JpaRepository<Document, Long> {
 }

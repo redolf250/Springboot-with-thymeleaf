@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-$END$
+<div th:replace="student/top-navigation :: header" ></div>
+  <div class="container">
+    <form th:action="@{/student/registration}" th:object="${student}" method="POST" role="form">
+      <legend>Student Registration</legend><br />
+            <div class="form-group">
+                <label for="reference">Reference</label><br />
+                <input type="text" th:field="*{reference}" name="reference" class="form-control" id="reference" placeholder="Reference" /><br />
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('reference')}" th:errors="*{reference}"></p>
+            </div>   <br/>
+            <div class="form-group">
+                <label for="firstname">Firstname</label><br/>
+                <input type="text" th:field="*{firstname}" name="firstname" class="form-control" id="firstname" placeholder="Firstname"/><br />
+                <p  class="alert alert-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+            </div>   <br/>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" th:field="*{lastname}" name="lastname" class="form-control" id="lastname" placeholder="Lastname"/><br />
+                <p  class="alert alert-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+            </div>   <br/>
+            <div class="form-group">
+                <label for="program">Program</label>
+                <input type="text" th:field="*{program}" name="program" class="form-control" id="program" placeholder="Program"/><br />
+                <p  class="alert alert-danger" th:if="${#fields.hasErrors('program')}" th:errors="*{program}"></p>
+            </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+<div th:replace="student/footer :: footer" ></div>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="/plugins/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div th:replace="student/top-navigation :: nav" ></div>
+    <div class="container">
+      <br /><br />
+      <h3>Student Information</h3>
+      <br />
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Reference</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Program</th>
+              <th>Created By</th>
+              <th>Created Date</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="item : ${studentList}">
+              <td th:text="${item.reference}"></td>
+              <td th:text="${item.firstname}"></td>
+              <td th:text="${item.lastname}"></td>
+              <td th:text="${item.program}"></td>
+              <td th:text="${item.createdBy}"></td>
+              <td th:text="${item.createdDate}"></td>
+              <td>
+                <a
+                  th:href="@{/student/delete/{id}(id=${item.id})}"
+                  class="btn btn-large btn-block btn-danger"
+                >
+                  Delete
+                </a>
+              </td>
+              <td>
+                <a
+                  th:href="@{/student/edit/{reference}(reference=${item.reference})}"
+                  class="btn btn-large btn-block btn-primary"
+                >
+                  Update
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="pagination pagination-lg">
+        <li><a class="btn btn-default" href="#">&laquo;</a></li>
+        <li><a class="btn btn-default" href="#">1</a></li>
+        <li><a class="btn btn-default" href="#">2</a></li>
+        <li><a class="btn btn-default" href="#">3</a></li>
+        <li><a class="btn btn-default" href="#">4</a></li>
+        <li><a class="btn btn-default" href="#">5</a></li>
+        <li><a class="btn btn-default" href="#">&raquo;</a></li>
+      </ul>
+    </div>
+  <div th:replace="student/footer :: footer" ></div>
+  </body>
+</html>

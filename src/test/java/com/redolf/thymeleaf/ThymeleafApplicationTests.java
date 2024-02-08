@@ -1,4 +1,4 @@
-package com.redol.thymeleaf;
+package com.redolf.thymeleaf;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

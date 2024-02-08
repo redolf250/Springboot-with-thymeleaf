@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="student/top-navigation :: header" ></div>
+    <div class="container">
+    <form th:action="@{/student/registration}" th:object="${student}" method="POST" role="form">
+        <legend>Update Information</legend><br/>
+        <div class="form-group">
+            <input type="hidden" th:field="*{id}" class="form-control" id="" placeholder="Id"/>
+            <label for="">Reference</label><br/>
+            <input type="text" th:field="*{reference}" class="form-control"  id="" placeholder="Reference"/>
+            <br/>
+            <label for="">Firstname</label><br/>
+            <input type="text" th:field="*{firstname}" class="form-control" id="" placeholder="Firstname"/>
+            <br/>
+            <label for="">Lastname</label>
+            <input type="text" th:field="*{lastname}" class="form-control" id="" placeholder="Lastname"/>
+            <br/>
+            <label for="">Program</label>
+            <input type="text" th:field="*{program}" class="form-control" id="" placeholder="Program"/>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    </div>
+    
+</body>
+</html>

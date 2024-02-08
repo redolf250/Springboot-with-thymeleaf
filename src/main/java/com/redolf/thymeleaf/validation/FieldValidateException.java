@@ -1,4 +1,4 @@
-package com.redolf.kubernetes.validation;
+package com.redolf.thymeleaf.validation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
